@@ -1,90 +1,60 @@
-# AI Document Q&A Bot using RAG
+# AI Document Q&A Assistant
 
-## Overview
-
-A Retrieval-Augmented Generation (RAG) based document question-answering system that enables users to query information from PDF and DOCX documents using semantic search and Large Language Models.
-
-The system extracts document content, generates vector embeddings, stores them in ChromaDB, retrieves relevant context, and generates grounded responses with source citations.
+A Retrieval-Augmented Generation (RAG) application that allows users to ask questions about PDF and DOCX documents using semantic search and Google Gemini.
 
 ## Features
 
-* PDF and DOCX document ingestion
-* Automatic text chunking with metadata preservation
-* Semantic search using vector embeddings
-* ChromaDB persistent vector storage
-* Gemini-powered answer generation
-* Source citation support
-* Streamlit web interface
-* Retrieval-Augmented Generation architecture
+- PDF and DOCX document ingestion
+- Recursive text chunking
+- Vector embeddings using Sentence Transformers
+- ChromaDB vector database
+- Semantic similarity search
+- Gemini-powered answer generation
+- Source citations
+- Streamlit web interface
 
 ## Tech Stack
 
-### Frontend
-
-* Streamlit
-
-### Backend
-
-* Python
-
-### Vector Database
-
-* ChromaDB
-
-### Embeddings
-
-* Sentence Transformers (all-MiniLM-L6-v2)
-
-### LLM
-
-* Google Gemini 2.5 Flash
-
-### Document Processing
-
-* PyPDF
-* python-docx
-
-## Project Structure
-
-document-qa-bot/
-├── app.py
-├── data/
-├── db/
-├── src/
-│   ├── config.py
-│   ├── ingest.py
-│   └── query.py
-├── requirements.txt
-├── .env
-└── README.md
-
-## Installation
-
-pip install -r requirements.txt
-
-## Run Ingestion
-
-python src/ingest.py
-
-## Run Application
-
-streamlit run app.py
+- Python
+- Streamlit
+- ChromaDB
+- Sentence Transformers
+- Google Gemini
+- PyPDF
+- python-docx
 
 ## Workflow
 
-1. Upload documents to data folder
-2. Run ingestion pipeline
-3. Generate embeddings
-4. Store vectors in ChromaDB
-5. Ask questions through Streamlit UI
+1. Load documents from the data folder
+2. Extract text
+3. Chunk content
+4. Generate embeddings
+5. Store vectors in ChromaDB
 6. Retrieve relevant chunks
-7. Generate grounded answers with citations
+7. Generate grounded answers with Gemini
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Build Vector Database
+
+```bash
+python src/ingest.py
+```
+
+## Run Application
+
+```bash
+streamlit run app.py
+```
 
 ## Future Improvements
 
-* Multi-user support
-* Document upload through UI
-* Hybrid search
-* Re-ranking
-* Conversation memory
-* Cloud deployment
+- Document upload through UI
+- Conversation memory
+- Hybrid retrieval
+- Cloud deployment
+- Multi-user support
